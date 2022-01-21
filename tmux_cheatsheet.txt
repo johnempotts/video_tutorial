@@ -1,0 +1,153 @@
+
+
+
+tmux new -s myname  -       Start new with session name
+tmux a              -       Attach
+tmux at
+tmux attach 
+tmux a -t myname    -       Attach to named
+tmux ls             -       List sessions
+tmux kill-session  -t myname     -      Kill session
+
+
+=====================
++++   Sessions   ++++
+=====================
+PREFIX-:new<CR>  -  New session
+PREFIX-$    -   Name session
+PREFIX-s    -   List sessions
+PREFIX-(    -   Previous session
+PREFIX-)    -   Next session
+PREFIX-L    -   Last session
+
+
+
+
+============================
+++++   Windows (Tabs)   ++++
+============================
+PREFIX-c    -   New window
+PREFIX-w    -   List windows
+PREFIX-f    -   Find window
+PREFIX-,    -   Name window
+PREFIX-&    -   Kill window
+PREFIX-n    -   Next window
+PREFIX-p    -   Previous window
+PREFIX-l    -   Previously selected window
+
+
+
+============================
++++++   Panes (Splits)   +++
+============================
+PREFIX-%    -   Vertical split
+PREFIX-"    -   Horizontal split
+PREFIX-o    -   Switch focus between panes
+PREFIX-q    -   Show pane numbers
+PREFIX-x    -   Kill pane
+PREFIX-z    -   Toggle active pane between zoomed and unzoomed
+PREFIX-"+"  -   Break pane into window (e.g. to select text by mouse to copy)
+PREFIX-"-"  -   Restore pane from window
+PREFIX-Space    -   Toggle between layouts
+PREFIX-Q    -   Show pane numbers
+                When the numbers show up type the key to go to that pane
+PREFIX-{    -   Move the current pane left
+PREFIX-}    -   Move the current pane right
+PREFIX-"Meta+{1..5}"   Arrange panes in one of the five preset layouts: 
+                       even-horizontal, even-vertical, main-horizontal, 
+                       main-vertical, or tiled. Meta key defaults to Alt.
+
+                       
+ =====================                    
+ +++   Copy Mode   +++
+ =====================
+Pressing PREFIX-[ 
+places us in Copy mode. We can then use our movement keys 
+to move our cursor around the screen. By default, the arrow keys work. 
+We set our configuration file to use Vim keys for moving between 
+windows and resizing panes so we wouldn’t have to take our hands off the home
+row. tmux has a vi mode for working with the buffer as well. To enable it, add 
+this line to .tmux.conf:
+
+setw -g mode-keys vi
+With this option set, we can use h, j, k, and l to move around our buffer.
+
+To get out of Copy mode, we just press the Enter key. Moving around one character 
+at a time isn’t very efficient. Since we enabled vi mode, we can also use some other
+visible shortcuts to move around the buffer. For example, we can use w to jump to 
+the next word and b to jump back one word. And we can use f, followed by any character,
+to jump to that character on the same line, and F to jump backwards on the line.
+
+
+^   -   Back to indentation
+Esc -   Clear selection
+Enter   -   Copy selection
+k       -   Cursor up
+j       -   Cursor down
+h       -   Cursor left
+l       -   Cursor right
+L       -   Cursor to bottom line
+M       -   Cursor to middle line
+H       -   Cursor to top line
+$       -   End of line
+:       -   Goto line
+C-d     -   Half page down
+C-u     -   Half page up
+C-f     -   Next page
+w       -   Next word
+p       -   Paste buffer
+C-b     -   Previous page
+b       -   Previous word
+q       -   Quit mode
+C-Down  -   Scroll down
+J
+C-Up    -   Scroll up
+K
+n       -   Search again
+?       -   Search backward
+/       -   Search forward
+0       -   Start of line
+Space   -   Start selection
+
+
+
+
+==============================
++++++   Resizing Panes   +++++
+==============================
+With most of these the number (##) is optional and can be omitted to resize one line.
+
+All of these can be bound to keys:
+
+bind H resize-pane -L 5
+bind J resize-pane -D 5
+bind K resize-pane -U 5
+bind L resize-pane -R 5
+PREFIX-: resize-pane -D ##
+PREFIX-:PREFIX-{arrow keys}   Moves left, right , up , down
+
+Resize the current pane down by ## lines. The -D is optional since by default it moves down
+Enter Command Mode;
+PREFIX-: resize-pane -U ##  -   Resize the current pane up ## lines
+PREFIX-: resize-pane -L ##  -   Resize the current pane left ## lines
+PREFIX-: resize-pane -R ##  -   Resize the current pane right ## lines
+PREFIX-: resize-pane -y ##  -   Resize the current pane to ## lines tall
+PREFIX-: resize-pane -x ##  -   Resize the current pane to ## lines wide
+
+
+
+==========================
++++    Miscellaneous   +++
+==========================
+PREFIX-d    -   Detach
+PREFIX-t    -   Big clock
+PREFIX-?    -   List shortcuts
+PREFIX-:    -   Prompt
+
+
+
+
+
+
+
+
